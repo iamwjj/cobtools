@@ -110,7 +110,21 @@ export default defineMock([
               component: "fans/import/index",
               name: "FansImport",
               meta: {
-                title: "粉丝导入",
+                title: "粉丝管理",
+                icon: "document",
+                hidden: false,
+                roles: ["ADMIN"],
+                keepAlive: true,
+                alwaysShow: false,
+                params: null,
+              },
+            },
+            {
+              path: "consumers",
+              component: "fans/consumers/index",
+              name: "FansImport",
+              meta: {
+                title: "买家号列表",
                 icon: "document",
                 hidden: false,
                 roles: ["ADMIN"],
