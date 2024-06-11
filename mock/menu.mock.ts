@@ -122,7 +122,7 @@ export default defineMock([
             {
               path: "consumers",
               component: "fans/consumers/index",
-              name: "FansImport",
+              name: "ConsumersList",
               meta: {
                 title: "买家号列表",
                 icon: "document",
