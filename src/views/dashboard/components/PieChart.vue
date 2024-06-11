@@ -1,7 +1,7 @@
 <!-- 饼图 -->
 <template>
   <el-card>
-    <template #header> 产品分类饼图 </template>
+    <template #header> 粉丝分类饼图 </template>
     <div :id="id" :class="className" :style="{ height, width }"></div>
   </el-card>
 </template>
@@ -58,10 +58,10 @@ const options = {
         },
       },
       data: [
-        { value: 26, name: "家用电器" },
-        { value: 27, name: "户外运动" },
-        { value: 24, name: "汽车用品" },
-        { value: 23, name: "手机数码" },
+        { value: 46, name: "玩具与游戏" },
+        { value: 18, name: "美妆与个护" },
+        { value: 24, name: "户外运动" },
+        { value: 12, name: "季节性产品" },
       ],
     },
   ],

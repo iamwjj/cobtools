@@ -79,10 +79,10 @@ export default defineMock([
           ],
         },
         {
-          path: "/user",
+          path: "/fans",
           component: "Layout",
-          redirect: "/user/list",
-          name: "User",
+          redirect: "/fans/list",
+          name: "Fans",
           meta: {
             title: "私域管理",
             icon: "link",
@@ -93,8 +93,8 @@ export default defineMock([
           children: [
             {
               path: "list",
-              component: "user/list/index",
-              name: "UserList",
+              component: "fans/list/index",
+              name: "FansList",
               meta: {
                 title: "粉丝列表",
                 icon: "user",
@@ -107,11 +107,11 @@ export default defineMock([
             },
             {
               path: "import",
-              component: "user/import/index",
-              name: "UserImport",
+              component: "fans/import/index",
+              name: "FansImport",
               meta: {
                 title: "粉丝导入",
-                icon: "table",
+                icon: "document",
                 hidden: false,
                 roles: ["ADMIN"],
                 keepAlive: true,
@@ -121,8 +121,8 @@ export default defineMock([
             },
             {
               path: "edm",
-              component: "user/edm/index",
-              name: "UserImport",
+              component: "fans/edm/index",
+              name: "FansEdm",
               meta: {
                 title: "EDM营销",
                 icon: "",
@@ -135,8 +135,8 @@ export default defineMock([
             },
             {
               path: "postcard",
-              component: "user/postcard/index",
-              name: "UserImport",
+              component: "fans/postcard/index",
+              name: "FansPostcard",
               meta: {
                 title: "明信片营销",
                 icon: "",

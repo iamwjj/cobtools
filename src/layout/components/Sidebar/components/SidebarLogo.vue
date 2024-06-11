@@ -7,7 +7,7 @@
 
       <router-link v-else class="wh-full flex-center" to="/">
         <img v-if="settingsStore.sidebarLogo" :src="logo" class="logo-image" />
-        <span class="logo-title"> {{ defaultSettings.title }}</span>
+        <!-- <span class="logo-title"> {{ defaultSettings.title }}</span> -->
       </router-link>
     </transition>
   </div>
@@ -30,21 +30,28 @@ const logo = ref(new URL(`../../../../assets/logo.png`, import.meta.url).href);
 </script>
 
 <style lang="scss" scoped>
+.hideSidebar {
+  .logo-container .logo-image {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .logo-container {
   width: 100%;
   height: $navbar-height;
   background-color: $sidebar-logo-background;
 
   .logo-image {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
   }
 
   .logo-title {
     flex-shrink: 0;
     /* 防止容器在空间不足时缩小 */
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: white;
   }

@@ -11,7 +11,7 @@
             <div>
               <p>{{ greetings }}</p>
               <p class="text-sm text-gray">
-                今日天气晴朗，气温在15℃至25℃之间，东南风。
+                You are different!
               </p>
             </div>
           </div>
@@ -26,7 +26,7 @@
                   <span class="text-[16px] ml-1">{{ item.title }}</span>
                 </div>
               </template>
-              <template v-if="item.suffix" #suffix>/100</template>
+              <template v-if="item.suffix" #suffix>/10</template>
             </el-statistic>
           </div>
         </el-col>
@@ -41,7 +41,7 @@
             <div class="flex items-center justify-between">
               <span class="text-[var(--el-text-color-secondary)]">{{
                 item.title
-              }}</span>
+                }}</span>
               <el-tag :type="item.tagType">
                 {{ item.tagText }}
               </el-tag>
@@ -57,7 +57,7 @@
 
           <div class="flex items-center justify-between mt-5 text-sm text-[var(--el-text-color-secondary)]">
             <span> {{ item.dataDesc }} </span>
-            <span> {{ Math.round(item.count * 15) }} </span>
+            <span> {{ item.total }} </span>
           </div>
         </el-card>
       </el-col>
@@ -87,18 +87,19 @@ const userStore = useUserStore();
 const date: Date = new Date();
 
 const greetings = computed(() => {
-  const hours = date.getHours();
-  if (hours >= 6 && hours < 8) {
-    return "晨起披衣出草堂，轩窗已自喜微凉🌅！";
-  } else if (hours >= 8 && hours < 12) {
-    return "上午好，" + userStore.user.nickname + "！";
-  } else if (hours >= 12 && hours < 18) {
-    return "下午好，" + userStore.user.nickname + "！";
-  } else if (hours >= 18 && hours < 24) {
-    return "晚上好，" + userStore.user.nickname + "！";
-  } else {
-    return "偷偷向银河要了一把碎星，只等你闭上眼睛撒入你的梦中，晚安🌛！";
-  }
+  return 'Welcome!'
+  // const hours = date.getHours();
+  // if (hours >= 6 && hours < 8) {
+  //   return "晨起披衣出草堂，轩窗已自喜微凉🌅！";
+  // } else if (hours >= 8 && hours < 12) {
+  //   return "上午好，" + userStore.user.nickname + "！";
+  // } else if (hours >= 12 && hours < 18) {
+  //   return "下午好，" + userStore.user.nickname + "！";
+  // } else if (hours >= 18 && hours < 24) {
+  //   return "晚上好，" + userStore.user.nickname + "！";
+  // } else {
+  //   return "偷偷向银河要了一把碎星，只等你闭上眼睛撒入你的梦中，晚安🌛！";
+  // }
 });
 
 const duration = 5000;
@@ -117,7 +118,7 @@ const visitCountOutput = useTransition(visitCount, {
   duration: duration,
   transition: TransitionPresets.easeOutExpo,
 });
-visitCount.value = 2000;
+visitCount.value = 12;
 
 // IP数
 const dauCount = ref(0);
@@ -125,7 +126,7 @@ const dauCountOutput = useTransition(dauCount, {
   duration: duration,
   transition: TransitionPresets.easeOutExpo,
 });
-dauCount.value = 2000;
+dauCount.value = 408;
 
 // 订单量
 const orderCount = ref(0);
@@ -138,20 +139,20 @@ orderCount.value = 2000;
 // 右上角数量
 const statisticData = ref([
   {
-    value: 99,
+    value: 9,
     iconClass: "message",
     title: "消息",
     key: "message",
   },
   {
-    value: 50,
+    value: 5,
     iconClass: "todolist",
     title: "待办",
-    suffix: "/100",
+    suffix: "/10",
     key: "upcoming",
   },
   {
-    value: 10,
+    value: 2,
     iconClass: "project",
     title: "项目",
     key: "project",
@@ -173,40 +174,43 @@ interface CardProp {
 // 卡片数量
 const cardData = ref<CardProp[]>([
   {
-    title: "访客数",
+    title: "粉丝数",
     tagType: "success",
     tagText: "日",
     count: visitCountOutput,
-    dataDesc: "总访客数",
+    dataDesc: "总粉丝数",
     iconClass: "visit",
+    total: '3604',
   },
   {
-    title: "IP数",
+    title: "邮箱数",
     tagType: "success",
     tagText: "日",
     count: dauCountOutput,
-    dataDesc: "总IP数",
-    iconClass: "ip",
+    dataDesc: "总邮箱数",
+    iconClass: "message",
+    total: '56080'
   },
-  {
-    title: "销售额",
-    tagType: "primary",
-    tagText: "月",
-    count: amountOutput,
-    dataDesc: "总IP数",
-    iconClass: "money",
-  },
-  {
-    title: "订单量",
-    tagType: "danger",
-    tagText: "季",
-    count: orderCountOutput,
-    dataDesc: "总订单量",
-    iconClass: "order",
-  },
+  // {
+  //   title: "销售额",
+  //   tagType: "primary",
+  //   tagText: "月",
+  //   count: amountOutput,
+  //   dataDesc: "总IP数",
+  //   iconClass: "money",
+  // },
+  // {
+  //   title: "订单量",
+  //   tagType: "danger",
+  //   tagText: "季",
+  //   count: orderCountOutput,
+  //   dataDesc: "总订单量",
+  //   iconClass: "order",
+  // },
 ]);
 // 图表数据
-const chartData = ref(["BarChart", "PieChart", "RadarChart"]);
+// const chartData = ref(["BarChart", "PieChart", "RadarChart"]);
+const chartData = ref(["PieChart"]);
 const chartComponent = (item: string) => {
   return defineAsyncComponent(() => import(`./components/${item}.vue`));
 };
