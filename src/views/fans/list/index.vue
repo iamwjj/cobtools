@@ -25,6 +25,17 @@
             <el-option label="暂无评级" value="no" />
           </el-select>
         </el-form-item>
+        <el-form-item label="类目">
+          <el-select v-model="queryParams.risk" placeholder="请选择" clearable>
+            <el-option label="高风险" value="high" />
+            <el-option label="中风险" value="mid" />
+            <el-option label="低风险" value="low" />
+            <el-option label="暂无评级" value="no" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="标签">
+          <el-input v-model="queryParams.risk" placeholder="请输入" clearable />
+        </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="handleQuery">查询</el-button>
           <el-button type="primary" @click="handleReset">重置</el-button>
