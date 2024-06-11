@@ -39,7 +39,18 @@
         <el-form-item>
           <el-button type="primary" @click="handleQuery">查询</el-button>
           <el-button type="primary" @click="handleReset">重置</el-button>
-          <el-button type="primary" @click="handleImport">粉丝管理</el-button>
+          <el-button
+            type="primary"
+            @click="handleManager"
+            v-if="multipleSelection.length > 0"
+            >粉丝管理</el-button
+          >
+          <el-button
+            type="primary"
+            @click="handleMarketing"
+            v-if="multipleSelection.length > 0"
+            >营销活动</el-button
+          >
         </el-form-item>
       </el-form>
     </div>
@@ -49,8 +60,11 @@
         v-loading="loading"
         border
         style="width: 100%"
+        @selection-change="handleSelectionChange"
       >
+        <el-table-column type="selection" width="55" />
         <el-table-column prop="create_at" label="时间" width="100" />
+        <el-table-column prop="id" label="粉丝ID" width="80" />
         <el-table-column prop="name" label="姓名" width="140" />
         <el-table-column prop="country" label="国家" width="60" />
         <el-table-column prop="email" label="邮箱" width="150" />
@@ -126,6 +140,7 @@ const tableData = ref(mockData.fans);
 const total = ref(0);
 const loading = ref(false);
 const visible = ref(false);
+const multipleSelection = ref([]);
 
 //mock
 const activities = [
@@ -194,6 +209,10 @@ function handleReset() {
 function viewRecord(id) {
   visible.value = true;
 }
+
+const handleSelectionChange = (val) => {
+  multipleSelection.value = val;
+};
 
 onMounted(() => {
   //   searchSellers()

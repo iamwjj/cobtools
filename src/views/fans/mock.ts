@@ -2,6 +2,7 @@ export default {
   fans: [
     {
       create_at: "2024/6/11",
+      id: 3604,
       name: "Corey Algeciras",
       country: "US",
       email: "coreya141@gmail.com",
@@ -23,6 +24,7 @@ export default {
     },
     {
       create_at: "2024/6/11",
+      id: 3603,
       name: "Rebecca Cleveland",
       country: "US",
       email: "BECKACURRIE829@GMAIL.COM",
@@ -45,6 +47,7 @@ export default {
     },
     {
       create_at: "2024/6/7",
+      id: 3602,
       name: "Nathan Poulsen",
       country: "US",
       email: "NESLUOPETAN@HOTMAIL.COM",
@@ -66,6 +69,7 @@ export default {
     },
     {
       create_at: "2024/6/7",
+      id: 3601,
       name: "Maria",
       country: "US",
       email: "YMRODRIGUEZ07@GMAIL.COM",
@@ -87,6 +91,7 @@ export default {
     },
     {
       create_at: "2024/6/7",
+      id: 3600,
       name: "Azizullah",
       country: "US",
       email: "AZIZULLAHD@YAHOO.COM",
@@ -109,6 +114,7 @@ export default {
     },
     {
       create_at: "2024/6/7",
+      id: 3599,
       name: "sandro",
       country: "US",
       email: "ciosciammocca@gmail.com",
@@ -130,6 +136,7 @@ export default {
     },
     {
       create_at: "2024/6/7",
+      id: 3598,
       name: "Scott Sims",
       country: "US",
       email: "SPS20052000@GMAIL.COM",
@@ -151,6 +158,7 @@ export default {
     },
     {
       create_at: "2024/6/7",
+      id: 3597,
       name: "Dalayne House",
       country: "US",
       email: "MYFAMILYHISTORY1962@GMAIL.COM",
@@ -172,6 +180,7 @@ export default {
     },
     {
       create_at: "2024/6/7",
+      id: 3596,
       name: "DawidStopka",
       country: "US",
       email: "dawidstopka101@gmail.com",
@@ -192,6 +201,7 @@ export default {
     },
     {
       create_at: "2024/6/7",
+      id: 3595,
       name: "Tina Kasim",
       country: "US",
       email: "KASIM.TINA@GMAIL.COM",
@@ -219,9 +229,9 @@ export default {
       reg_device: "Redmi-01",
       ip: "1591845xxxx-4G",
       address1:
-        "name：Emma Banuelos\naddress：9310 Shirley Gardens Drive Apt. D St. Louis, MO 63114\n電話：(314) 874-6144",
+        "姓名：Emma Banuelos\n地址：9310 Shirley Gardens Drive Apt. D St. Louis, MO 63114\n電話：(314) 874-6144",
       address2:
-        "name：Emma Banuelos\naddress：9310 Shirley Gardens Drive Apt. D St. Louis, MO 63114\n電話：(314) 874-6144",
+        "姓名：Emma Banuelos\n地址：9310 Shirley Gardens Drive Apt. D St. Louis, MO 63114\n電話：(314) 874-6144",
       state: "密苏里州（MO）--美中",
       pay_type: "JL-VISA",
       email: "embxxxx@outlook.com",
