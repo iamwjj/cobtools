@@ -8,7 +8,7 @@ export default defineMock([
       code: "00000",
       data: [
         {
-          path: "/helper",
+          path: "/",
           component: "Layout",
           redirect: "/seller/list",
           name: "Helper",
@@ -35,6 +35,20 @@ export default defineMock([
               },
             },
             {
+              path: "seller/favorite",
+              component: "seller/favorite/index",
+              name: "SellerFavorite",
+              meta: {
+                title: "店铺收藏",
+                icon: "dict",
+                hidden: false,
+                roles: ["ADMIN"],
+                keepAlive: true,
+                alwaysShow: false,
+                params: null,
+              },
+            },
+            {
               path: "seller/detail",
               component: "seller/detail/index",
               name: "SellerDetail",
@@ -53,21 +67,7 @@ export default defineMock([
               component: "product/finder/index",
               name: "ProductFinder",
               meta: {
-                title: "Product Finder",
-                icon: "edit",
-                hidden: false,
-                roles: ["ADMIN"],
-                keepAlive: true,
-                alwaysShow: false,
-                params: null,
-              },
-            },
-            {
-              path: "product/viewer",
-              component: "product/viewer/index",
-              name: "ProductViewer",
-              meta: {
-                title: "Product Viewer",
+                title: "产品发现",
                 icon: "eye-open",
                 hidden: false,
                 roles: ["ADMIN"],
@@ -106,9 +106,9 @@ export default defineMock([
               },
             },
             {
-              path: "import",
-              component: "fans/import/index",
-              name: "FansImport",
+              path: "manage",
+              component: "fans/manage/index",
+              name: "FansManage",
               meta: {
                 title: "粉丝管理",
                 icon: "document",

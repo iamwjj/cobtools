@@ -2,7 +2,7 @@
   <main class="fans-list">
     <div class="search-container">
       <el-form class="search-form" ref="queryFormRef" :inline="true" :model="queryParams">
-        <el-form-item label="国家">
+        <el-form-item label="站点">
           <el-select v-model="queryParams.country" placeholder="请选择" clearable>
             <el-option label="美国" value="US" />
             <el-option label="英国" value="UK" />
@@ -12,7 +12,7 @@
             <el-option label="西班牙" value="ES" />
           </el-select>
         </el-form-item>
-        <el-form-item label="风险评级">
+        <!-- <el-form-item label="风险评级">
           <el-select v-model="queryParams.risk" placeholder="请选择" clearable>
             <el-option label="高风险" value="high" />
             <el-option label="中风险" value="mid" />
@@ -21,13 +21,13 @@
           </el-select>
         </el-form-item>
         <el-form-item label="类目">
-          <el-select v-model="queryParams.category" placeholder="请选择" clearable>
-            <el-option label="玩具与游戏" value="high" />
-            <el-option label="美妆与个护" value="mid" />
-            <el-option label="户外运动" value="low" />
-            <el-option label="季节性产品" value="no" />
+          <el-select v-model="queryParams.risk" placeholder="请选择" clearable>
+            <el-option label="高风险" value="high" />
+            <el-option label="中风险" value="mid" />
+            <el-option label="低风险" value="low" />
+            <el-option label="暂无评级" value="no" />
           </el-select>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="标签">
           <el-select v-model="queryParams.tag" placeholder="请选择" clearable>
             <el-option label="玩具" value="high" />
@@ -45,46 +45,45 @@
       </el-form>
     </div>
     <div class="search-result">
-      <el-table
-:data="tableData" v-loading="loading" border style="width: 100%"
+      <el-table :data="tableData" v-loading="loading" border style="width: 100%"
         @selection-change="handleSelectionChange">
-        <el-table-column type="selection" width="55" />
-        <el-table-column prop="create_at" label="时间" width="100" />
-        <el-table-column prop="id" label="粉丝ID" width="80" />
-        <el-table-column prop="name" label="姓名" width="140" />
-        <el-table-column prop="country" label="国家" width="60" />
-        <el-table-column prop="email" label="邮箱" width="150" />
-        <el-table-column prop="tel" label="电话" width="120" />
-        <el-table-column prop="address" label="地址" width="300" />
-        <el-table-column prop="age" label="年龄" width="60" />
-        <el-table-column prop="sex" label="性别" width="60" />
-        <el-table-column prop="source" label="来源" width="80" />
-        <el-table-column prop="paypal" label="Paypal" width="180" />
-        <el-table-column prop="profile" label="Profile" width="280" />
-        <el-table-column prop="fb" label="FaceBook" width="180" />
-        <el-table-column prop="wa" label="WhatApp" width="180" />
-        <el-table-column prop="yt" label="Youtube" width="180" />
-        <el-table-column prop="risk" label="风险评级" width="100" />
-        <el-table-column prop="category" label="类目" width="120" />
-        <el-table-column prop="tags" label="兴趣标签" width="120" />
-        <el-table-column prop="orderId" label="订单号" width="180" fixed="right">
+        <!-- <el-table-column type="selection" width="55" /> -->
+        <!-- <el-table-column prop="create_at" label="时间" width="100" /> -->
+        <el-table-column prop="num" label="序号" width="60" />
+        <el-table-column prop="site" label="站点" width="60" />
+        <el-table-column prop="device" label="注册设备" width="100" />
+        <el-table-column prop="ip" label="网络IP" />
+        <el-table-column prop="name" label="名字" />
+        <el-table-column prop="phone" label="电话" />
+        <el-table-column prop="address" label="地址" width="240" />
+        <el-table-column prop="state" label="所在州" />
+        <el-table-column prop="pay_type" label="付款方式" />
+        <el-table-column prop="email" label="邮箱" />
+        <el-table-column prop="browser" label="浏览器" width="100" />
+        <el-table-column prop="create_at" label="注册时间" width="100" />
+        <el-table-column prop="phone" label="手机" />
+        <el-table-column prop="record" label="下单记录" width="240">
+          <template #default="props">
+            <pre>{{ props.row.record }}</pre>
+          </template>
+        </el-table-column>
+        <el-table-column prop="tag" label="标签" />
+        <!-- <el-table-column prop="orderId" label="订单号" width="180" fixed="right">
           <template #default="props">
             <el-button type="primary" link @click="viewRecord">{{
               props.row.orderId
               }}</el-button>
           </template>
-        </el-table-column>
+</el-table-column> -->
       </el-table>
     </div>
     <div class="pagination">
-      <el-pagination
-background :current-page="queryParams.pageNum" :page-size="queryParams.pageSize" :total="total"
+      <el-pagination background :current-page="queryParams.pageNum" :page-size="queryParams.pageSize" :total="total"
         @current-change="handlePageChange" />
     </div>
     <el-dialog v-model="visible" title="合作记录" width="600">
       <el-timeline>
-        <el-timeline-item
-v-for="(activity, index) in activities" :key="index" :icon="activity.icon"
+        <el-timeline-item v-for="(activity, index) in activities" :key="index" :icon="activity.icon"
           :type="activity.type" :color="activity.color" :size="activity.size" :hollow="activity.hollow"
           :timestamp="activity.timestamp">
           {{ activity.content }}
@@ -107,7 +106,7 @@ const queryParams = reactive({
   pageSize: 15,
 });
 const queryFormRef = ref();
-const tableData = ref(mockData.fans);
+const tableData = ref(mockData.consumers);
 const total = ref(0);
 const loading = ref(false);
 const visible = ref(false);
@@ -167,9 +166,13 @@ const handlePageChange = (page) => {
   handleQuery();
 };
 
-const handleImport = () => {
+const handleManager = () => {
   router.push("/fans/import");
 };
+
+const handleMarketing = () => {
+
+}
 
 function handleReset() {
   queryFormRef.value.resetFields();

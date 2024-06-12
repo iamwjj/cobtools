@@ -17,7 +17,7 @@
         <p data-v-a104e76a="">3、导入规则：1、姓名（必填）; 2、地址、邮箱、手机（三选一）;</p>
         <p data-v-a104e76a="">4、如果已存在该用户，系统会更新用户对应的信息;</p>
         <p class='file-download'><a href="/file/粉丝导入模板.xlsx" target="_blank" class="m-xs" data-v-a104e76a=""><i
-              class="iconfont icon-download" data-v-a104e76a=""></i>粉丝导入模板.xls</a></p>
+              class="iconfont icon-download"></i>粉丝导入模板.xls</a></p>
       </div>
       <div class="tip custom-block tishibox">
         <p class="custom-block-title" data-v-a104e76a="">上传文件</p>
