@@ -76,6 +76,20 @@ export default defineMock([
                 params: null,
               },
             },
+            {
+              path: "product/favorite",
+              component: "product/favorite/index",
+              name: "ProductFavorite",
+              meta: {
+                title: "产品收藏",
+                icon: "link",
+                hidden: false,
+                roles: ["ADMIN"],
+                keepAlive: true,
+                alwaysShow: false,
+                params: null,
+              },
+            },
           ],
         },
         {
